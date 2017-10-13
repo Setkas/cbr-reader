@@ -1,0 +1,29 @@
+<div class="modal fade"
+     bsModal
+     #modalComponentModal="bs-modal"
+     [config]="{backdrop: modalData.closeOnClick === true ? true : 'static'}"
+     tabindex="-1"
+     role="dialog">
+  <div class="modal-dialog"
+       [ngClass]="modalData.className">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left"
+            [innerHTML]="modalData.title"></h4>
+      </div>
+
+      <div class="modal-body"
+           [innerHTML]="modalData.content"></div>
+
+      <div class="modal-footer">
+        <button *ngFor="let button of modalData.buttons"
+                type="button"
+                class="btn {{button.className}}"
+                [ngClass]="{'btn-primary': button.className.length === 0}"
+                (click)="button.callback(modalComponentModal)">
+          {{button.text}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

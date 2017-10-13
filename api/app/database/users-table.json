@@ -1,0 +1,21 @@
+{
+  "id_user": {
+    "type": "INTEGER",
+    "primaryKey": true,
+    "autoIncrement": true,
+    "null": false
+  },
+  "username": {
+    "type": "TEXT",
+    "null": false,
+    "unique": true
+  },
+  "password": {
+    "type": "TEXT",
+    "null": false
+  },
+  "email": {
+    "type": "TEXT",
+    "null": false
+  }
+}

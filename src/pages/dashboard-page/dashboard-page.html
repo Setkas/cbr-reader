@@ -1,0 +1,37 @@
+<div class="container-fluid pt-5 pb-5">
+  <div class="card"
+       *ngFor="let book of bookList">
+    <img class="card-img-top"
+         [src]="book.image"
+         [alt]="book.title">
+
+    <div class="card-body">
+      <h4 class="card-title">
+        {{book.title}}
+      </h4>
+
+      <p class="card-text">
+        {{book.description}}
+      </p>
+    </div>
+
+    <ul class="list-group list-group-flush text-right">
+      <li class="list-group-item">
+        <b class="float-left">{{"dashboard.ADDED"| translate}}:</b> {{book.added| amDateFormat:"D. M. YYYY HH:mm:ss"}}
+      </li>
+
+      <li class="list-group-item">
+        <b class="float-left">{{"dashboard.TYPE"| translate}}:</b> {{book.type}}
+      </li>
+
+      <li class="list-group-item">
+        <b class="float-left">{{"dashboard.PAGES"| translate}}:</b> {{book.pages}}
+      </li>
+
+      <li class="list-group-item">
+        <b class="float-left">{{"dashboard.SCORE"| translate}}:</b> {{book.score}}
+      </li>
+    </ul>
+  </div>
+</div>
+

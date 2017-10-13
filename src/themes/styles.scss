@@ -1,0 +1,114 @@
+@import "common/variables";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "common/functions";
+@import "common/mixins";
+@import "overrides";
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background-color: color(dark);
+}
+
+loader-component {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: color(dark, 0, 0.9);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9999;
+  @include user-select(none);
+  @include transition(opacity 0.5s ease-in-out);
+
+  &.shown {
+    pointer-events: auto;
+    cursor: wait;
+    opacity: 1;
+  }
+
+  &.pre-shown {
+    pointer-events: auto;
+    cursor: wait;
+    opacity: 1;
+    @include transition(opacity 0);
+  }
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7em;
+  height: 6em;
+  text-align: center;
+  font-size: 10px;
+  @include transform(translate(-50%, -50%));
+
+  > div {
+    background-color: color(primary);
+    height: 100%;
+    width: 0.7em;
+    display: inline-block;
+    @include animation(sk-stretch 1.2s infinite ease-in-out);
+  }
+
+  .rect2 {
+    @include animation-delay(-1.1s);
+  }
+
+  .rect3 {
+    @include animation-delay(-1.0s);
+  }
+
+  .rect4 {
+    @include animation-delay(-0.9s);
+  }
+
+  .rect5 {
+    @include animation-delay(-0.8s);
+  }
+}
+
+@include keyframes(sk-stretch) {
+  0%,
+  40%,
+  100% {
+    @include transform(scaleY(0.4));
+  }
+  20% {
+    @include transform(scaleY(1));
+  }
+}
+
+.flex-content {
+  height: 100%;
+  width: 100%;
+  @include display-flex();
+
+  .flex-item {
+    position: relative;
+    @include flex(0 1 auto);
+
+    &.flex-relative {
+      min-height: 15em;
+      @include flex(1);
+
+      > .card {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+
+        &.overflow {
+          overflow: auto;
+        }
+      }
+    }
+  }
+}

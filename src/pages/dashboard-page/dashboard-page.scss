@@ -1,0 +1,13 @@
+@import "../../themes/imports";
+
+app-dashboard-page {
+  .container-fluid {
+    @include display-flex();
+  }
+
+  .card {
+    max-width: 20em;
+    min-width: 20%;
+    @include flex(1);
+  }
+}

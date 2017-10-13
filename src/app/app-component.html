@@ -1,0 +1,13 @@
+<navigator-component *ngIf="canShowMenu()"></navigator-component>
+
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
+
+<flash-component></flash-component>
+
+<cookie-consent-component></cookie-consent-component>
+
+<modal-component></modal-component>
+
+<loader-component></loader-component>

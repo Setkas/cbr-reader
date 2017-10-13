@@ -1,0 +1,56 @@
+$brand-primary: color(primary);
+$brand-success: color(success);
+$brand-info: color(info);
+$brand-warning: color(warning);
+$brand-danger: color(danger);
+$brand-inverse: color(dark);
+
+.btn:not([disabled]) {
+  cursor: pointer;
+}
+
+.fade.in {
+  opacity: 1;
+
+  &.modal .modal-dialog {
+    @include transform(translate(0, 0));
+  }
+
+  &.modal-backdrop {
+    opacity: 0.75;
+  }
+}
+
+.modal {
+  .modal-header {
+    background-color: color(primary);
+    color: color(light);
+    border-bottom: none;
+    @include border-radius(0.3rem 0.3rem 0 0);
+  }
+
+  .modal-footer {
+    border-top: none;
+  }
+}
+
+.custom-control.custom-checkbox {
+  display: block;
+}
+
+.form-group > label {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  &.custom-control.custom-checkbox {
+    overflow: visible;
+    @include user-select(none);
+
+    > .custom-control-description {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id_book": {
+    "type": "INTEGER",
+    "primaryKey": true,
+    "autoIncrement": true,
+    "null": false
+  },
+  "title": {
+    "type": "TEXT",
+    "null": false,
+    "unique": true
+  },
+  "pages": {
+    "type": "INTEGER",
+    "null": false
+  },
+  "score": {
+    "type": "REAL",
+    "null": false
+  },
+  "type": {
+    "type": "TEXT",
+    "null": false
+  },
+  "added": {
+    "type": "TEXT",
+    "null": false
+  },
+  "description": {
+    "type": "TEXT",
+    "null": true
+  },
+  "file_name": {
+    "type": "TEXT",
+    "null": false,
+    "unique": true
+  },
+  "deleted": {
+    "type": "INTEGER",
+    "null": false,
+    "default": 0
+  }
+}

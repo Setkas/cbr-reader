@@ -1,0 +1,25 @@
+<div class="float-box"
+     [ngClass]="{'hidden': hasConsent()}">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-block row align-items-center p-0 pl-3 pr-3">
+            <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
+              <p class="text-muted text-center mb-0 pt-3 pb-3">
+                {{"general.POLICY_AGREEMENT"| translate}}
+              </p>
+            </div>
+
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+              <button class="btn btn-primary btn-block mb-3 mt-3"
+                      (click)="consentToPolicy()">
+                {{"general.I_AGREE"| translate}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

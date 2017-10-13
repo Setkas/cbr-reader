@@ -1,0 +1,16 @@
+$color-palette: (
+  light: #FFFFFF,
+  dark: #333333,
+  primary: #a200ff,
+  success: #8ec127,
+  warning: #f47835,
+  danger: #d41243,
+  info: #00aedb
+);
+
+$theme-colors: $color-palette;
+
+$border-size: 1px;
+
+$md-breakpoint: 992px;
+$lg-breakpoint: 1200px;

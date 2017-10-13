@@ -1,0 +1,15 @@
+@import "../../themes/imports";
+
+cookie-consent-component {
+  .float-box {
+    position: fixed;
+    bottom: 0.5em;
+    left: 0;
+    width: 100%;
+    @include transition(transform 0.5s ease-in-out);
+
+    &.hidden {
+      @include transform(translate(0, calc(100% + 1em)));
+    }
+  }
+}

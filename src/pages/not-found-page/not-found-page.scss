@@ -1,0 +1,15 @@
+@import "../../themes/imports";
+
+app-not-found-page {
+  display: block;
+  position: absolute;
+  top: -0.5em;
+  right: -1em;
+  bottom: -0.5em;
+  left: -1em;
+  background-color: color(dark, 0, 0.8);
+
+  h1 {
+    font-size: 5em;
+  }
+}

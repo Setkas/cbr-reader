@@ -1,0 +1,30 @@
+<div class="flash-message alert {{flash.type}}"
+     *ngFor="let flash of flashData"
+     [ngClass]="{'hidden': flash.shown === false}"
+     (click)="removeMessage(flash.id)">
+  <strong *ngIf="flash.type === 'alert-success'">
+    <i class="ion ion-checkmark-circled"></i>
+
+    {{"general.SUCCESS"| translate}}:
+  </strong>
+
+  <strong *ngIf="flash.type === 'alert-danger'">
+    <i class="ion ion-close-circled"></i>
+
+    {{"general.ERROR"| translate}}:
+  </strong>
+
+  <strong *ngIf="flash.type === 'alert-warning'">
+    <i class="ion ion-help-circled"></i>
+
+    {{"general.WARNING"| translate}}:
+  </strong>
+
+  <strong *ngIf="flash.type === 'alert-info'">
+    <i class="ion ion-information-circled"></i>
+
+    {{"general.INFO"| translate}}:
+  </strong>
+
+  {{flash.content}}
+</div>

@@ -1,0 +1,15 @@
+@import "../themes/imports";
+
+app-root {
+  .main-content {
+    width: 100%;
+    height: calc(100% - 1em);
+    margin: 0.5em 0;
+    padding: 0 1em;
+
+    @media (max-width: $md-breakpoint - 1px) {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+  }
+}

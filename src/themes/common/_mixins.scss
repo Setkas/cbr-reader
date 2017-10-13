@@ -1,0 +1,78 @@
+@mixin transform($value) {
+  transform: $value;
+}
+
+@mixin transition($value) {
+  transition: $value;
+}
+
+@mixin user-select($value) {
+  user-select: $value;
+}
+
+@mixin outline($value) {
+  outline: none;
+}
+
+@mixin animation($value) {
+  animation: $value;
+}
+
+@mixin animation-delay($value) {
+  animation-delay: $value;
+}
+
+@mixin border-radius($value) {
+  border-radius: $value;
+}
+
+@mixin box-shadow($value) {
+  box-shadow: $value;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin display-flex($value: column) {
+  display: flex;
+
+  flex-direction: $value;
+}
+
+@mixin flex($value) {
+  flex: $value;
+}
+
+@mixin transform-origin($value) {
+  transform-origin: $value;
+}
+
+@mixin ionicon($icon) {
+  content: $icon;
+  display: inline-block;
+  font-family: "Ionicons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,39 @@
+@import "../../themes/imports";
+
+app-login-page {
+  display: block;
+  position: absolute;
+  top: -0.5em;
+  right: -1em;
+  bottom: -0.5em;
+  left: -1em;
+  background-color: color(dark, 0, 0.8);
+
+  .card-block {
+    padding: 1em;
+  }
+
+  .logo-image {
+    display: block;
+    width: 75%;
+    max-width: 15em;
+    margin: 0 auto;
+    @include user-select(none);
+  }
+
+  .version-box {
+    position: fixed;
+    bottom: (0.5em / 0.8);
+    right: (0.5em / 0.8);
+    font-size: 0.8em;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+
+  .h2 {
+    color: color(primary);
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 0.5em 0;
+  }
+}

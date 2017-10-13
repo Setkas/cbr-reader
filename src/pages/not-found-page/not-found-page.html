@@ -1,0 +1,28 @@
+<div class="container-fluid text-center pt-5 pb-5">
+  <div class="row pl-3 pr-3">
+    <div class="col-xs-10 col-sm-8 col-md-6 col-lg-4 offset-xs-1 offset-sm-2 offset-md-3 offset-lg-4">
+      <div class="card">
+        <div class="card-block">
+          <h1 class="text-primary">
+            <i class="ion ion-alert-circled"></i>
+          </h1>
+
+          <h2>
+            {{"not_found.PAGE_NOT_FOUND"| translate}}
+          </h2>
+
+          <p class="text-muted">
+            {{"not_found.REQUESTED_PAGE_MISSING"| translate}}
+          </p>
+
+          <button class="btn btn-primary"
+                  (click)="goBack()">
+            <i class="ion ion-arrow-return-left"></i>
+
+            {{"not_found.GO_BACK"| translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
