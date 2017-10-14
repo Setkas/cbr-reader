@@ -1,11 +1,17 @@
 declare module "*.json" {
-    const value: any;
+  const value: any;
 
-    export default value;
+  export default value;
 }
 
 declare module "hapi-swagger" {
-    const value: any;
+  const value: any;
 
-    export default value;
+  export default value;
+}
+
+declare module "md5" {
+  const value: any;
+
+  export default value;
 }

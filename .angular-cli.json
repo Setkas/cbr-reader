@@ -18,12 +18,6 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "../node_modules/tether/src/css/tether.sass",
-        "../node_modules/bootstrap/scss/bootstrap.scss",
-        "../node_modules/ionicons-npm/scss/ionicons.scss",
-        "../node_modules/leaflet/dist/leaflet.css",
-        "../node_modules/ag-grid/dist/styles/ag-grid.css",
-        "../node_modules/ag-grid/dist/styles/theme-bootstrap.css",
         "themes/styles.scss"
       ],
       "scripts": [
@@ -31,9 +25,7 @@
         "../node_modules/tether/dist/js/tether.min.js",
         "../node_modules/popper.js/dist/umd/popper.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-        "../node_modules/hammerjs/hammer.min.js",
-        "../node_modules/chart.js/dist/Chart.bundle.min.js",
-        "../node_modules/tinycolor2/dist/tinycolor-min.js"
+        "../node_modules/hammerjs/hammer.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

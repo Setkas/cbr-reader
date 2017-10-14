@@ -1,8 +1,11 @@
 @import "common/variables";
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/tether/src/css/tether.sass";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/ionicons-npm/scss/ionicons.scss";
 @import "common/functions";
 @import "common/mixins";
 @import "overrides";
+
 
 html, body {
   height: 100%;

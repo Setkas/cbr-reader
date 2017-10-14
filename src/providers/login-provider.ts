@@ -87,8 +87,8 @@ export class LoginProvider {
     return false;
   }
 
-  public logout(): Promise<any> {
-    return new Promise((resolve) => {
+  public logout(): Promise<void> {
+    return new Promise<void>((resolve: () => void) => {
       this.removeSession();
 
       this.loginData = null;

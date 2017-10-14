@@ -13,14 +13,18 @@ export interface IImageData {
 }
 
 export class BooksHandler {
+    public static Self(instance: BooksHandler = new BooksHandler()): BooksHandler {
+        return instance;
+    }
+
     constructor(private booksModel: BooksModel = new BooksModel()) {
 
     }
 
     public getBooks(request: Hapi.Request, reply: Hapi.Base_Reply): void {
-        let vars;
+        const self: BooksHandler = BooksHandler.Self(this);
 
-        this.booksModel.getBooks().then((data: IBook[]) => {
+        self.booksModel.getBooks().then((data: IBook[]) => {
             data.forEach((row: IBook) => {
                 row.deleted = !!row.deleted;
             });
@@ -32,11 +36,13 @@ export class BooksHandler {
     }
 
     public putBook(request: Hapi.Request, reply: Hapi.Base_Reply): void {
+        const self: BooksHandler = BooksHandler.Self(this);
+
         let payload: IBook = JSON.parse(JSON.stringify(request.payload));
 
         payload.added = Moment().utc().toISOString();
 
-        this.booksModel.addBook(payload).then(() => {
+        self.booksModel.addBook(payload).then(() => {
             reply(null);
         }, () => {
             ErrorResponse.GenerateResponse(reply);
@@ -44,11 +50,13 @@ export class BooksHandler {
     }
 
     public postBook(request: Hapi.Request, reply: Hapi.Base_Reply): void {
+        const self: BooksHandler = BooksHandler.Self(this);
+
         let payload: IBook = JSON.parse(JSON.stringify(request.payload));
 
         payload.added = Moment().utc().toISOString();
 
-        this.booksModel.addBook(payload).then(() => {
+        self.booksModel.addBook(payload).then(() => {
             reply(null);
         }, () => {
             ErrorResponse.GenerateResponse(reply);
@@ -56,10 +64,12 @@ export class BooksHandler {
     }
 
     public patchBook(request: Hapi.Request, reply: Hapi.Base_Reply): void {
+        const self: BooksHandler = BooksHandler.Self(this);
+
         let payload: IBookUpdate = JSON.parse(JSON.stringify(request.payload)),
             params: {id_book: number} = JSON.parse(JSON.stringify(request.params));
 
-        this.booksModel.updateBook(params.id_book, payload).then(() => {
+        self.booksModel.updateBook(params.id_book, payload).then(() => {
             reply(null);
         }, () => {
             ErrorResponse.GenerateResponse(reply);
@@ -67,9 +77,11 @@ export class BooksHandler {
     }
 
     public getBookById(request: Hapi.Request, reply: Hapi.Base_Reply): void {
+        const self: BooksHandler = BooksHandler.Self(this);
+
         let params: {id_book: number} = JSON.parse(JSON.stringify(request.params));
 
-        this.booksModel.getBook(params.id_book).then((data: IBook) => {
+        self.booksModel.getBook(params.id_book).then((data: IBook) => {
             data.deleted = !!data.deleted;
 
             reply(data);
@@ -83,8 +95,10 @@ export class BooksHandler {
     }
 
     private getImageFile(bookId: number, pageNo: number): Promise<IImageData> {
+        const self: BooksHandler = BooksHandler.Self(this);
+
         return new Promise((resolve, reject) => {
-            this.booksModel.getBook(bookId).then((data: IBook) => {
+            self.booksModel.getBook(bookId).then((data: IBook) => {
                 const at: ArchiveTool = new ArchiveTool();
 
                 let list: string[]|boolean = at.listArchive(data.file_name);
@@ -102,10 +116,10 @@ export class BooksHandler {
                         if (typeof files === 'boolean' || files.length === 0) {
                             reject();
                         } else {
-                            this.getImageFileResponse(files[0], resolve, reject);
+                            self.getImageFileResponse(files[0], resolve, reject);
                         }
                     } else {
-                        this.getImageFileResponse(Config.books.temp + list[pageNo - 1], resolve, reject);
+                        self.getImageFileResponse(Config.books.temp + list[pageNo - 1], resolve, reject);
                     }
                 }
             }, (err) => {
@@ -119,6 +133,8 @@ export class BooksHandler {
     };
 
     private getImageFileResponse(file: string, resolve: Function, reject: Function): void {
+        const self: BooksHandler = BooksHandler.Self(this);
+
         Fs.readFile(file, (err, data) => {
             if (!err) {
                 resolve({
@@ -134,9 +150,11 @@ export class BooksHandler {
     }
 
     public getBookPreview (request: Hapi.Request, reply: Hapi.Base_Reply) {
+        const self: BooksHandler = BooksHandler.Self(this);
+
         let params: {id_book: number} = JSON.parse(JSON.stringify(request.params));
 
-        this.getImageFile(params.id_book, 1).then((data: IImageData) => {
+        self.getImageFile(params.id_book, 1).then((data: IImageData) => {
             reply(data.data).type(data.mime);
         }, (code) => {
             ErrorResponse.GenerateResponse(reply, code);
@@ -144,10 +162,12 @@ export class BooksHandler {
     }
 
     public getBookPage (request: Hapi.Request, reply: Hapi.Base_Reply) {
+        const self: BooksHandler = BooksHandler.Self(this);
+
         let params: {id_book: number} = JSON.parse(JSON.stringify(request.params)),
             query: {page: number} = request.query;
 
-        this.getImageFile(params.id_book, query.page).then((data: IImageData) => {
+        self.getImageFile(params.id_book, query.page).then((data: IImageData) => {
             reply(data.data).type(data.mime);
         }, (code) => {
             ErrorResponse.GenerateResponse(reply, code);

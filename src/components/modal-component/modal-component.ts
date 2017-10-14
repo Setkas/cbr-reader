@@ -7,7 +7,7 @@ import {
   ModalParamsInterface,
   ModalButtonParamsInterface
 } from "./modal-provider";
-import {ModalDirective} from "ng2-bootstrap";
+import {ModalDirective} from "ngx-bootstrap";
 
 /**
  * Modal data interface

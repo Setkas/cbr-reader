@@ -28,13 +28,14 @@ export interface IConfig {
         name: string,
         url: string,
         auth: string
-    }
+    },
+    baseUserFile: string
 }
 
 export const Config: IConfig = {
     "server": {
         "host": "localhost",
-        "port": 3000,
+        "port": 3030,
         "headers": [
             "Accept",
             "Authorization",
@@ -68,5 +69,6 @@ export const Config: IConfig = {
         "name": "myanimelist.net",
         "url": "https://myanimelist.net/api/manga/search.xml",
         "auth": "U3ViZHJhZ29uOldpbmRvd3M3"
-    }
+    },
+    "baseUserFile": "./build/credentials.json"
 };

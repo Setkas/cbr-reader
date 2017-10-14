@@ -25,6 +25,10 @@ interface IInfoResponse {
 }
 
 export class InfoHandler {
+    public static Self(instance: InfoHandler = new InfoHandler()): InfoHandler {
+        return instance;
+    }
+
     public getInfo (request: Hapi.Request, reply: Hapi.Base_Reply) {
         let query: {search: string} = request.query;
 

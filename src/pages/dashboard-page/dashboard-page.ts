@@ -3,8 +3,6 @@ import {FlashProvider} from "../../components/flash-component/flash-provider";
 import {TranslateService} from "@ngx-translate/core";
 import {BooksProvider, BookInterface} from "../../providers/books-provider";
 
-declare const tinycolor: any;
-
 export interface BookViewInterface extends BookInterface {
   image: string
 }

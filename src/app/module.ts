@@ -4,11 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app-component';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {RouterModule} from "@angular/router";
-import {
-  ModalModule, AlertModule, PopoverModule, BsDropdownModule, AccordionModule,
-  TypeaheadModule, TooltipModule, TimepickerModule, TabsModule, SortableModule, RatingModule, ProgressbarModule,
-  PaginationModule, DatepickerModule, CollapseModule, CarouselModule, ButtonsModule
-} from "ng2-bootstrap";
+import {Ng2BootstrapModule} from "ngx-bootstrap";
 import {MomentModule} from "angular2-moment";
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import {AppRoutes} from "./routes";
@@ -66,23 +62,7 @@ export function HttpLoaderFactory(httpClient: HttpClient): TranslateHttpLoader {
       }
     }),
     MomentModule,
-    AccordionModule.forRoot(),
-    AlertModule.forRoot(),
-    ButtonsModule.forRoot(),
-    CarouselModule.forRoot(),
-    CollapseModule.forRoot(),
-    DatepickerModule.forRoot(),
-    BsDropdownModule.forRoot(),
-    ModalModule.forRoot(),
-    PaginationModule.forRoot(),
-    PopoverModule.forRoot(),
-    ProgressbarModule.forRoot(),
-    RatingModule.forRoot(),
-    SortableModule.forRoot(),
-    TabsModule.forRoot(),
-    TimepickerModule.forRoot(),
-    TooltipModule.forRoot(),
-    TypeaheadModule.forRoot()
+    Ng2BootstrapModule.forRoot()
   ],
   providers: [
     LoggerProvider,
